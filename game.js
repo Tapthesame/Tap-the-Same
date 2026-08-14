@@ -1,55 +1,60 @@
 /* =====================================================
-   TAP THE SAME - ANIMALS & BIRDS EDITION
+   TAP THE SAME
+   ANIMALS & BIRDS EDITION
    ===================================================== */
 
 const ITEMS = [
-  { name: "Dog", emoji: "🐶" },
-  { name: "Cat", emoji: "🐱" },
-  { name: "Lion", emoji: "🦁" },
-  { name: "Tiger", emoji: "🐯" },
-  { name: "Elephant", emoji: "🐘" },
-  { name: "Panda", emoji: "🐼" },
-  { name: "Koala", emoji: "🐨" },
-  { name: "Monkey", emoji: "🐵" },
-  { name: "Fox", emoji: "🦊" },
-  { name: "Bear", emoji: "🐻" },
-  { name: "Rabbit", emoji: "🐰" },
-  { name: "Frog", emoji: "🐸" },
-  { name: "Pig", emoji: "🐷" },
-  { name: "Cow", emoji: "🐮" },
-  { name: "Horse", emoji: "🐴" },
-  { name: "Sheep", emoji: "🐑" },
-  { name: "Goat", emoji: "🐐" },
-  { name: "Chicken", emoji: "🐔" },
-  { name: "Duck", emoji: "🦆" },
-  { name: "Eagle", emoji: "🦅" },
-  { name: "Owl", emoji: "🦉" },
-  { name: "Parrot", emoji: "🦜" },
-  { name: "Flamingo", emoji: "🦩" },
-  { name: "Peacock", emoji: "🦚" },
-  { name: "Penguin", emoji: "🐧" },
-  { name: "Swan", emoji: "🦢" },
-  { name: "Turtle", emoji: "🐢" },
-  { name: "Crocodile", emoji: "🐊" },
-  { name: "Snake", emoji: "🐍" },
-  { name: "Giraffe", emoji: "🦒" },
-  { name: "Zebra", emoji: "🦓" },
-  { name: "Kangaroo", emoji: "🦘" },
-  { name: "Hippo", emoji: "🦛" },
-  { name: "Rhino", emoji: "🦏" },
-  { name: "Octopus", emoji: "🐙" },
-  { name: "Dolphin", emoji: "🐬" },
-  { name: "Whale", emoji: "🐳" },
-  { name: "Shark", emoji: "🦈" },
-  { name: "Fish", emoji: "🐠" },
-  { name: "Butterfly", emoji: "🦋" },
-  { name: "Bee", emoji: "🐝" }
-];
+  ["Dog", "🐶"],
+  ["Cat", "🐱"],
+  ["Lion", "🦁"],
+  ["Tiger", "🐯"],
+  ["Elephant", "🐘"],
+  ["Panda", "🐼"],
+  ["Koala", "🐨"],
+  ["Monkey", "🐵"],
+  ["Fox", "🦊"],
+  ["Bear", "🐻"],
+  ["Rabbit", "🐰"],
+  ["Frog", "🐸"],
+  ["Pig", "🐷"],
+  ["Cow", "🐮"],
+  ["Horse", "🐴"],
+  ["Sheep", "🐑"],
+  ["Goat", "🐐"],
+  ["Chicken", "🐔"],
+  ["Duck", "🦆"],
+  ["Eagle", "🦅"],
+  ["Owl", "🦉"],
+  ["Parrot", "🦜"],
+  ["Flamingo", "🦩"],
+  ["Peacock", "🦚"],
+  ["Penguin", "🐧"],
+  ["Swan", "🦢"],
+  ["Turtle", "🐢"],
+  ["Crocodile", "🐊"],
+  ["Snake", "🐍"],
+  ["Giraffe", "🦒"],
+  ["Zebra", "🦓"],
+  ["Kangaroo", "🦘"],
+  ["Hippo", "🦛"],
+  ["Rhino", "🦏"],
+  ["Octopus", "🐙"],
+  ["Dolphin", "🐬"],
+  ["Whale", "🐳"],
+  ["Shark", "🦈"],
+  ["Fish", "🐠"],
+  ["Butterfly", "🦋"],
+  ["Bee", "🐝"],
+  ["Ladybug", "🐞"],
+  ["Snail", "🐌"],
+  ["Ant", "🐜"],
+  ["Spider", "🕷️"]
+].map(([name, emoji]) => ({ name, emoji }));
 
 
-/* =========================
-   GAME VARIABLES
-   ========================= */
+/* =====================================================
+   GAME STATE
+   ===================================================== */
 
 let score = 0;
 let lives = 3;
@@ -64,9 +69,9 @@ let timer = null;
 let timeLeft = 8;
 
 
-/* =========================
+/* =====================================================
    ELEMENTS
-   ========================= */
+   ===================================================== */
 
 const scoreEl = document.getElementById("score");
 const livesEl = document.getElementById("lives");
@@ -86,9 +91,61 @@ const gameSection = document.getElementById("gameSection");
 const playNowBtn = document.getElementById("playNow");
 
 
-/* =========================
-   UPDATE HEADER
-   ========================= */
+/* =====================================================
+   CHANGE OLD FRUIT WORDS AUTOMATICALLY
+   ===================================================== */
+
+const smallLabel = document.querySelector(".small-label");
+
+if (smallLabel) {
+  smallLabel.textContent = "FIND THIS ANIMAL";
+}
+
+if (hearBtn) {
+  hearBtn.textContent = "🔊 Hear Animal";
+}
+
+
+/* =====================================================
+   SPEECH
+   ===================================================== */
+
+function speakAnimal(name) {
+
+  if (!("speechSynthesis" in window)) {
+    return;
+  }
+
+  window.speechSynthesis.cancel();
+
+  const utterance =
+    new SpeechSynthesisUtterance(name);
+
+  utterance.lang = "en-US";
+  utterance.rate = 0.65;
+  utterance.pitch = 1.05;
+  utterance.volume = 1;
+
+  const voices =
+    window.speechSynthesis.getVoices();
+
+  const englishVoice =
+    voices.find(v =>
+      v.lang &&
+      v.lang.toLowerCase().startsWith("en")
+    );
+
+  if (englishVoice) {
+    utterance.voice = englishVoice;
+  }
+
+  window.speechSynthesis.speak(utterance);
+}
+
+
+/* =====================================================
+   HEADER
+   ===================================================== */
 
 function updateHeader() {
 
@@ -106,11 +163,11 @@ function updateHeader() {
 }
 
 
-/* =========================
-   RANDOM ITEM
-   ========================= */
+/* =====================================================
+   RANDOM ANIMAL
+   ===================================================== */
 
-function randomItem() {
+function randomAnimal() {
 
   return ITEMS[
     Math.floor(Math.random() * ITEMS.length)
@@ -118,117 +175,97 @@ function randomItem() {
 }
 
 
-/* =========================
-   CREATE ANIMAL IMAGE
-   ========================= */
-
-function animalVisual(item, large = false) {
-
-  return `
-    <div
-      class="animal-emoji ${large ? "large-animal" : ""}"
-      aria-label="${item.name}">
-      ${item.emoji}
-    </div>
-  `;
-}
-
-
-/* =========================
-   SHOW TARGET
-   ========================= */
+/* =====================================================
+   TARGET
+   ===================================================== */
 
 function showTarget() {
 
-  if (!target) return;
+  if (!target) {
+    return;
+  }
 
   if (targetEmojiEl) {
 
-    targetEmojiEl.innerHTML =
-      animalVisual(target, true);
+    targetEmojiEl.innerHTML = `
+      <div class="target-animal">
+        ${target.emoji}
+      </div>
+    `;
   }
 
   if (targetNameEl) {
-
-    targetNameEl.textContent =
-      target.name;
+    targetNameEl.textContent = target.name;
   }
 }
 
 
-/* =========================
-   CREATE OPTIONS
-   ========================= */
+/* =====================================================
+   OPTIONS
+   ===================================================== */
 
 function createOptions() {
 
-  if (!optionsEl) return;
+  if (!optionsEl) {
+    return;
+  }
 
   optionsEl.innerHTML = "";
 
-  let choices = [target];
+  const choices = [target];
 
   while (choices.length < 4) {
 
-    const item = randomItem();
+    const animal = randomAnimal();
 
-    const alreadyExists =
+    const exists =
       choices.some(
-        x => x.name === item.name
+        item => item.name === animal.name
       );
 
-    if (!alreadyExists) {
-      choices.push(item);
+    if (!exists) {
+      choices.push(animal);
     }
   }
-
-
-  /* Shuffle */
 
   choices.sort(
     () => Math.random() - 0.5
   );
 
 
-  choices.forEach(item => {
+  choices.forEach(animal => {
 
     const button =
       document.createElement("button");
 
     button.type = "button";
-
-    button.className =
-      "animal-option";
-
+    button.className = "animal-option";
 
     button.innerHTML = `
-      <div class="animal-picture">
-        ${animalVisual(item)}
-      </div>
+      <span class="option-animal">
+        ${animal.emoji}
+      </span>
 
-      <div class="animal-name">
-        ${item.name}
-      </div>
+      <span class="option-name">
+        ${animal.name}
+      </span>
     `;
 
 
     button.addEventListener(
       "click",
-      function () {
-        selectAnimal(item);
-      }
+      () => selectAnimal(animal)
     );
 
 
     optionsEl.appendChild(button);
-
   });
 }
 
 
-/* =========================
+/* =====================================================
    TIMER
-   ========================= */
+   ===================================================== */
 
 function startTimer() {
 
@@ -236,104 +273,87 @@ function startTimer() {
 
   timeLeft = 8;
 
-
   if (timerBar) {
-
     timerBar.style.width = "100%";
   }
 
+  timer = setInterval(() => {
 
-  timer = setInterval(
-    function () {
+    timeLeft -= 0.1;
 
-      timeLeft -= 0.1;
+    const percentage =
+      Math.max(
+        0,
+        (timeLeft / 8) * 100
+      );
 
+    if (timerBar) {
+      timerBar.style.width =
+        percentage + "%";
+    }
 
-      const percentage =
-        Math.max(
-          0,
-          (timeLeft / 8) * 100
-        );
+    if (timeLeft <= 0) {
 
+      clearInterval(timer);
 
-      if (timerBar) {
+      timeUp();
+    }
 
-        timerBar.style.width =
-          percentage + "%";
-      }
-
-
-      if (timeLeft <= 0) {
-
-        clearInterval(timer);
-
-        timeoutRound();
-      }
-
-    },
-    100
-  );
+  }, 100);
 }
 
 
-/* =========================
-   TIME OUT
-   ========================= */
+/* =====================================================
+   TIME UP
+   ===================================================== */
 
-function timeoutRound() {
+function timeUp() {
 
   if (!gameStarted || gameOver) {
     return;
   }
 
-
   lives--;
 
   updateHeader();
-
 
   showMessage(
     "⏰ Time's Up!",
     "wrong"
   );
 
-
   if (lives <= 0) {
-
     endGame();
-
     return;
   }
 
+  setTimeout(() => {
 
-  setTimeout(
-    function () {
-
+    if (!gameOver) {
       nextRound();
+    }
 
-    },
-    700
-  );
+  }, 800);
 }
 
 
-/* =========================
+/* =====================================================
    SELECT ANIMAL
-   ========================= */
+   ===================================================== */
 
-function selectAnimal(item) {
+function selectAnimal(animal) {
 
   if (!gameStarted || gameOver) {
     return;
   }
 
-
   clearInterval(timer);
 
+  /* Speak the animal that player tapped */
+  speakAnimal(animal.name);
 
-  if (item.name === target.name) {
 
-    /* CORRECT */
+  if (animal.name === target.name) {
 
     score += 10;
 
@@ -342,61 +362,50 @@ function selectAnimal(item) {
 
     updateHeader();
 
-
     showMessage(
-      "🎉 Correct!",
+      `🎉 Correct! ${animal.name}`,
       "correct"
     );
 
+    setTimeout(() => {
 
-    setTimeout(
-      function () {
-
+      if (!gameOver) {
         nextRound();
+      }
 
-      },
-      450
-    );
-
+    }, 700);
 
   } else {
-
-    /* WRONG */
 
     lives--;
 
     updateHeader();
 
-
     showMessage(
-      "❌ Try Again!",
+      `❌ That's ${animal.name}`,
       "wrong"
     );
-
 
     if (lives <= 0) {
 
       endGame();
-
       return;
     }
 
+    setTimeout(() => {
 
-    setTimeout(
-      function () {
-
+      if (!gameOver) {
         nextRound();
+      }
 
-      },
-      650
-    );
+    }, 900);
   }
 }
 
 
-/* =========================
+/* =====================================================
    NEXT ROUND
-   ========================= */
+   ===================================================== */
 
 function nextRound() {
 
@@ -404,12 +413,9 @@ function nextRound() {
     return;
   }
 
-
   clearInterval(timer);
 
-
-  target = randomItem();
-
+  target = randomAnimal();
 
   showTarget();
 
@@ -419,14 +425,13 @@ function nextRound() {
 }
 
 
-/* =========================
+/* =====================================================
    START GAME
-   ========================= */
+   ===================================================== */
 
 function startGame() {
 
   clearInterval(timer);
-
 
   score = 0;
   lives = 3;
@@ -437,58 +442,52 @@ function startGame() {
   gameStarted = true;
   gameOver = false;
 
-
   updateHeader();
 
   clearMessage();
-
 
   nextRound();
 }
 
 
-/* =========================
+/* =====================================================
    GAME OVER
-   ========================= */
+   ===================================================== */
 
 function endGame() {
 
   clearInterval(timer);
 
-
   gameStarted = false;
   gameOver = true;
 
-
   if (targetEmojiEl) {
-
     targetEmojiEl.innerHTML = "🏆";
   }
 
-
   if (targetNameEl) {
-
-    targetNameEl.textContent =
-      "Game Over";
+    targetNameEl.textContent = "Game Over";
   }
-
 
   if (optionsEl) {
 
     optionsEl.innerHTML = `
-
       <div class="game-over">
 
+        <div class="game-over-icon">
+          🏆
+        </div>
+
         <div class="game-over-title">
-          🎮 GAME OVER
+          GAME OVER
         </div>
 
         <div class="final-score">
-          Score: ${score}
+          Your Score: ${score}
         </div>
 
         <div class="final-level">
-          ⭐ Level: ${level}
+          ⭐ Level ${level}
         </div>
 
         <button
@@ -499,7 +498,6 @@ function endGame() {
         </button>
 
       </div>
-
     `;
 
 
@@ -518,21 +516,22 @@ function endGame() {
     }
   }
 
-
   showMessage(
-    "Well Played! 🏆",
+    "Well Played! 🎉",
     "correct"
   );
 }
 
 
-/* =========================
+/* =====================================================
    MESSAGE
-   ========================= */
+   ===================================================== */
 
 function showMessage(text, type) {
 
-  if (!messageEl) return;
+  if (!messageEl) {
+    return;
+  }
 
   messageEl.textContent = text;
 
@@ -543,18 +542,19 @@ function showMessage(text, type) {
 
 function clearMessage() {
 
-  if (!messageEl) return;
+  if (!messageEl) {
+    return;
+  }
 
   messageEl.textContent = "";
 
-  messageEl.className =
-    "message";
+  messageEl.className = "message";
 }
 
 
-/* =========================
-   HEAR ANIMAL
-   ========================= */
+/* =====================================================
+   HEAR ANIMAL BUTTON
+   ===================================================== */
 
 if (hearBtn) {
 
@@ -562,37 +562,8 @@ if (hearBtn) {
     "click",
     function () {
 
-      if (!target) return;
-
-
-      if (
-        "speechSynthesis" in window
-      ) {
-
-        speechSynthesis.cancel();
-
-
-        const speech =
-          new SpeechSynthesisUtterance(
-            target.name
-          );
-
-
-        speech.lang = "en-US";
-
-        /*
-          Slow pronunciation so
-          children's names are easier
-          to understand.
-        */
-
-        speech.rate = 0.65;
-        speech.pitch = 1;
-
-
-        speechSynthesis.speak(
-          speech
-        );
+      if (target) {
+        speakAnimal(target.name);
       }
 
     }
@@ -600,9 +571,9 @@ if (hearBtn) {
 }
 
 
-/* =========================
-   RESTART BUTTON
-   ========================= */
+/* =====================================================
+   RESTART
+   ===================================================== */
 
 if (restartBtn) {
 
@@ -613,50 +584,42 @@ if (restartBtn) {
 }
 
 
-/* =========================
+/* =====================================================
    START SCREEN
-   ========================= */
+   ===================================================== */
 
 function showStartScreen() {
 
   clearInterval(timer);
 
-
   gameStarted = false;
   gameOver = false;
 
-
   if (targetEmojiEl) {
-
-    targetEmojiEl.innerHTML =
-      "🐾";
+    targetEmojiEl.innerHTML = "🐾";
   }
 
-
   if (targetNameEl) {
-
     targetNameEl.textContent =
       "Ready to Play?";
   }
 
-
   if (optionsEl) {
 
     optionsEl.innerHTML = `
-
       <div class="start-screen">
 
-        <div class="start-animal">
-          🦁 🐼 🐶
+        <div class="start-animals">
+          🦁 🐼 🐶 🐱 🐘
         </div>
 
         <div class="start-title">
-          Animal Match!
+          Animal Match
         </div>
 
         <p>
           Find the animal that matches
-          the target.
+          the target!
         </p>
 
         <button
@@ -667,7 +630,6 @@ function showStartScreen() {
         </button>
 
       </div>
-
     `;
 
 
@@ -686,14 +648,13 @@ function showStartScreen() {
     }
   }
 
-
   updateHeader();
 }
 
 
-/* =========================
+/* =====================================================
    PLAY NOW
-   ========================= */
+   ===================================================== */
 
 if (playNowBtn) {
 
@@ -706,30 +667,20 @@ if (playNowBtn) {
         gameSection.style.display =
           "block";
 
-
         gameSection.scrollIntoView({
           behavior: "smooth"
         });
       }
 
-
       showStartScreen();
-
     }
   );
 }
 
 
-/* =========================
+/* =====================================================
    INITIAL STATE
-   ========================= */
-
-/*
-   VERY IMPORTANT:
-
-   WEBSITE OPEN AINAPPUDU
-   GAME AUTOMATIC GA START AVVADU.
-*/
+   ===================================================== */
 
 gameStarted = false;
 gameOver = false;
@@ -738,18 +689,14 @@ clearInterval(timer);
 
 
 /*
-   If game section is directly visible,
-   show START GAME screen.
+   DO NOT AUTO START.
 */
 
 if (!playNowBtn && optionsEl) {
 
   if (gameSection) {
-
-    gameSection.style.display =
-      "block";
+    gameSection.style.display = "block";
   }
 
   showStartScreen();
 }
-      
