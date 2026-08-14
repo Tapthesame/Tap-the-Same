@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ff4f81">
+<title>Play — Tap the Same</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">🍓 <span>Tap the Same</span></div>
+  <nav><a href="index.html">Home</a><a href="game.html">Play</a><a href="index.html#how">How to Play</a><a href="index.html#fruits">Fruits</a></nav>
+</header>
+<main>
+<section class="game-section" style="min-height:calc(100vh - 90px);">
+<div class="game-shell">
+<div class="game-head">
+  <div>🏆 <span id="score">0</span></div>
+  <div>❤️ <span id="lives">3</span></div>
+  <div>⭐ Level <span id="level">1</span></div>
+</div>
+<div class="timer-wrap"><div id="timerBar"></div></div>
+<div class="target-card">
+  <div class="small-label">FIND THIS FRUIT</div>
+  <div id="targetEmoji" class="target-emoji">🍎</div>
+  <div id="targetName" class="target-name">Apple</div>
+</div>
+<div id="options" class="options"></div>
+<div id="message" class="message"></div>
+<div class="game-actions">
+  <button class="secondary" id="hearBtn" type="button">🔊 Hear Fruit</button>
+  <button class="secondary" id="restartBtn" type="button">↻ Restart</button>
+  <a class="secondary" href="index.html">🏠 Home</a>
+</div>
+</div>
+</section>
+</main>
+<script src="game.js"></script>
+</body>
+</html>
