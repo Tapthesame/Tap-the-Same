@@ -1,97 +1,214 @@
-const items = [
-  // FRUITS
-  {name:"Apple", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f34e.svg", type:"fruit"},
-  {name:"Banana", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f34c.svg", type:"fruit"},
-  {name:"Mango", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f96d.svg", type:"fruit"},
-  {name:"Orange", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f34a.svg", type:"fruit"},
-  {name:"Strawberry", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f353.svg", type:"fruit"},
-  {name:"Watermelon", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f349.svg", type:"fruit"},
-  {name:"Pineapple", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f34d.svg", type:"fruit"},
-  {name:"Grapes", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f347.svg", type:"fruit"},
-  {name:"Kiwi", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f95d.svg", type:"fruit"},
-  {name:"Peach", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f351.svg", type:"fruit"},
-  {name:"Pear", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f350.svg", type:"fruit"},
-  {name:"Cherry", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f352.svg", type:"fruit"},
-  {name:"Coconut", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f965.svg", type:"fruit"},
-  {name:"Lemon", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f34b.svg", type:"fruit"},
-  {name:"Avocado", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f951.svg", type:"fruit"},
-  {name:"Melon", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f348.svg", type:"fruit"},
-  {name:"Pomegranate", image:"https://commons.wikimedia.org/wiki/Special:FilePath/Pomegranate%20fruit.jpg", type:"fruit"},
-  {name:"Raspberry", image:"https://commons.wikimedia.org/wiki/Special:FilePath/Raspberries.png", type:"fruit"},
-  {name:"Blackberry", image:"https://commons.wikimedia.org/wiki/Special:FilePath/Blackberries.jpg", type:"fruit"},
-  {name:"Papaya", image:"https://commons.wikimedia.org/wiki/Special:FilePath/Papaya.jpg", type:"fruit"},
-  {name:"Fig", image:"https://commons.wikimedia.org/wiki/Special:FilePath/Figs.jpg", type:"fruit"},
-  {name:"Dates", image:"https://commons.wikimedia.org/wiki/Special:FilePath/Dates.jpg", type:"fruit"},
-  {name:"Dragon Fruit", image:"https://commons.wikimedia.org/wiki/Special:FilePath/Pitaya%20fruit.jpg", type:"fruit"},
-  {name:"Passion Fruit", image:"https://commons.wikimedia.org/wiki/Special:FilePath/Passionfruit.jpg", type:"fruit"},
-  {name:"Guava", image:"https://commons.wikimedia.org/wiki/Special:FilePath/Guava.jpg", type:"fruit"},
-  {name:"Sapota", image:"https://commons.wikimedia.org/wiki/Special:FilePath/Sapodilla.jpg", type:"fruit"},
-  {name:"Lychee", image:"https://commons.wikimedia.org/wiki/Special:FilePath/Lychee.jpg", type:"fruit"},
-  {name:"Jackfruit", image:"https://commons.wikimedia.org/wiki/Special:FilePath/Jackfruit.jpg", type:"fruit"},
-  {name:"Star Fruit", image:"https://commons.wikimedia.org/wiki/Special:FilePath/Carambola.jpg", type:"fruit"},
-  {name:"Avocado", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f951.svg", type:"fruit"},
+// ============================================================
+// TAP THE SAME - FINAL GAME.JS
+// ============================================================
 
-  // BIRDS
-  {name:"Parrot", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f99c.svg", type:"bird"},
-  {name:"Peacock", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f99a.svg", type:"bird"},
-  {name:"Owl", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f989.svg", type:"bird"},
-  {name:"Duck", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f986.svg", type:"bird"},
-  {name:"Eagle", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f985.svg", type:"bird"},
-  {name:"Penguin", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f427.svg", type:"bird"},
-  {name:"Swan", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f9a2.svg", type:"bird"},
-  {name:"Chicken", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f414.svg", type:"bird"},
-  {name:"Rooster", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f413.svg", type:"bird"},
-  {name:"Turkey", image:"https://cdn.jsdelivr.net/gh/twitter/twemoji@latest/assets/svg/1f983.svg", type:"bird"}
+const fruits = [
+  { name: "Apple", image: "apple" },
+  { name: "Banana", image: "banana" },
+  { name: "Mango", image: "mango" },
+  { name: "Orange", image: "orange" },
+  { name: "Strawberry", image: "strawberry" },
+  { name: "Watermelon", image: "watermelon" },
+  { name: "Pineapple", image: "pineapple" },
+  { name: "Grapes", image: "grapes" },
+  { name: "Kiwi", image: "kiwi" },
+  { name: "Peach", image: "peach" },
+  { name: "Pear", image: "pear" },
+  { name: "Cherry", image: "cherry" },
+  { name: "Coconut", image: "coconut" },
+  { name: "Lemon", image: "lemon" },
+  { name: "Avocado", image: "avocado" },
+  { name: "Melon", image: "melon" },
+  { name: "Pomegranate", image: "pomegranate" },
+  { name: "Raspberry", image: "raspberry" },
+  { name: "Blackberry", image: "blackberry" },
+  { name: "Papaya", image: "papaya" },
+  { name: "Fig", image: "fig" },
+  { name: "Dates", image: "dates" },
+  { name: "Persimmon", image: "persimmon" },
+  { name: "Dragon Fruit", image: "dragonfruit" },
+  { name: "Guava", image: "guava" },
+  { name: "Sapota", image: "sapota" },
+  { name: "Lychee", image: "lychee" },
+  { name: "Jackfruit", image: "jackfruit" },
+  { name: "Star Fruit", image: "starfruit" },
+  { name: "Passion Fruit", image: "passionfruit" }
 ];
 
+const birds = [
+  { name: "Parrot", image: "parrot" },
+  { name: "Peacock", image: "peacock" },
+  { name: "Owl", image: "owl" },
+  { name: "Eagle", image: "eagle" },
+  { name: "Duck", image: "duck" },
+  { name: "Swan", image: "swan" },
+  { name: "Penguin", image: "penguin" },
+  { name: "Flamingo", image: "flamingo" },
+  { name: "Kingfisher", image: "kingfisher" },
+  { name: "Crow", image: "crow" },
+  { name: "Hen", image: "hen" },
+  { name: "Rooster", image: "rooster" }
+];
+
+const allItems = [...fruits, ...birds];
+
 let score = 0;
+let bestScore = Number(localStorage.getItem("tapSameBest") || 0);
 let lives = 3;
 let level = 1;
 let target = null;
 let timer = null;
-let timeLeft = 100;
+let timeLeft = 8;
 let locked = false;
+
+// ------------------------------------------------------------
+// DOM
+// ------------------------------------------------------------
 
 const scoreEl = document.getElementById("score");
 const livesEl = document.getElementById("lives");
 const levelEl = document.getElementById("level");
-const targetEmojiEl = document.getElementById("targetEmoji");
-const targetNameEl = document.getElementById("targetName");
+const targetEmoji = document.getElementById("targetEmoji");
+const targetName = document.getElementById("targetName");
 const optionsEl = document.getElementById("options");
 const messageEl = document.getElementById("message");
 const timerBar = document.getElementById("timerBar");
+
 const hearBtn = document.getElementById("hearBtn");
 const restartBtn = document.getElementById("restartBtn");
 
-function shuffle(array) {
-  return [...array].sort(() => Math.random() - 0.5);
+// ------------------------------------------------------------
+// IMAGE SPRITE
+// ------------------------------------------------------------
+
+// Generated cartoon image file.
+// Upload this exact file into the same GitHub folder as game.js:
+//
+// cartoon-fruits-birds.png
+
+const spriteFile = "cartoon-fruits-birds.png";
+
+// Coordinates inside the generated sprite sheet.
+// They are intentionally approximate crops around each illustration.
+const spritePositions = {
+
+  // Fruits
+  apple:        "0% 0%",
+  banana:       "17% 0%",
+  mango:        "34% 0%",
+  orange:       "51% 0%",
+  strawberry:   "68% 0%",
+  watermelon:   "85% 0%",
+
+  pineapple:    "0% 25%",
+  grapes:       "17% 25%",
+  kiwi:         "34% 25%",
+  peach:        "51% 25%",
+  pear:         "68% 25%",
+  cherry:       "85% 25%",
+
+  coconut:      "0% 50%",
+  lemon:        "17% 50%",
+  avocado:      "34% 50%",
+  melon:        "51% 50%",
+  pomegranate:  "68% 50%",
+  raspberry:    "85% 50%",
+
+  blackberry:   "0% 75%",
+  papaya:       "17% 75%",
+  fig:          "34% 75%",
+  dates:        "51% 75%",
+  persimmon:    "68% 75%",
+  dragonfruit:  "85% 75%",
+
+  guava:        "0% 100%",
+  sapota:       "17% 100%",
+  lychee:       "34% 100%",
+  jackfruit:    "51% 100%",
+  starfruit:    "68% 100%",
+  passionfruit: "85% 100%"
+};
+
+// ------------------------------------------------------------
+// BIRD SPRITE POSITIONS
+// ------------------------------------------------------------
+
+const birdPositions = {
+  parrot:     "0% 0%",
+  peacock:    "50% 0%",
+  owl:        "100% 0%",
+
+  eagle:      "0% 33%",
+  duck:       "50% 33%",
+  swan:       "100% 33%",
+
+  penguin:    "0% 66%",
+  flamingo:   "50% 66%",
+  kingfisher: "100% 66%",
+
+  crow:       "0% 100%",
+  hen:        "50% 100%",
+  rooster:    "100% 100%"
+};
+
+// ------------------------------------------------------------
+// CREATE ART
+// ------------------------------------------------------------
+
+function createArt(item) {
+
+  const art = document.createElement("div");
+  art.className = "game-art";
+
+  art.style.backgroundImage = `url("${spriteFile}")`;
+
+  if (item.image in spritePositions) {
+    art.style.backgroundPosition = spritePositions[item.image];
+  }
+
+  if (item.image in birdPositions) {
+    art.style.backgroundPosition = birdPositions[item.image];
+  }
+
+  art.style.backgroundSize = "600% 500%";
+  art.setAttribute("aria-label", item.name);
+
+  return art;
 }
 
-function updateHUD() {
-  if (scoreEl) scoreEl.textContent = score;
-  if (livesEl) livesEl.textContent = lives;
-  if (levelEl) levelEl.textContent = level;
+// ------------------------------------------------------------
+// RANDOM ITEM
+// ------------------------------------------------------------
+
+function randomItem() {
+  return allItems[Math.floor(Math.random() * allItems.length)];
 }
 
-function speak(text) {
-  if (!window.speechSynthesis) return;
+// ------------------------------------------------------------
+// UPDATE HEADER
+// ------------------------------------------------------------
 
-  speechSynthesis.cancel();
+function updateHeader() {
 
-  const voice = new SpeechSynthesisUtterance(text);
+  scoreEl.textContent = score;
+  livesEl.textContent = lives;
+  levelEl.textContent = level;
 
-  voice.lang = "en-US";
-  voice.rate = 0.78;
-  voice.pitch = 1;
-  voice.volume = 1;
-
-  speechSynthesis.speak(voice);
+  if (score > bestScore) {
+    bestScore = score;
+    localStorage.setItem("tapSameBest", bestScore);
+  }
 }
+
+// ------------------------------------------------------------
+// TIMER
+// ------------------------------------------------------------
 
 function startTimer() {
+
   clearInterval(timer);
 
-  timeLeft = Math.max(45, 100 - ((level - 1) * 5));
+  timeLeft = Math.max(4, 9 - level);
 
   if (timerBar) {
     timerBar.style.width = "100%";
@@ -101,8 +218,11 @@ function startTimer() {
 
     timeLeft--;
 
+    const percentage =
+      Math.max(0, (timeLeft / Math.max(4, 9 - level)) * 100);
+
     if (timerBar) {
-      timerBar.style.width = timeLeft + "%";
+      timerBar.style.width = percentage + "%";
     }
 
     if (timeLeft <= 0) {
@@ -112,262 +232,162 @@ function startTimer() {
       if (locked) return;
 
       locked = true;
-
-      lives--;
-
-      updateHUD();
-
-      if (messageEl) {
-        messageEl.textContent = "⏰ Time's up!";
-      }
+      loseLife("⏰ Time's up!");
 
       setTimeout(() => {
-
-        if (lives <= 0) {
-          gameOver();
-        } else {
+        if (lives > 0) {
           nextRound();
         }
-
       }, 700);
     }
 
-  }, 100);
+  }, 1000);
 }
 
-function createImage(item, size) {
-
-  const img = document.createElement("img");
-
-  img.src = item.image;
-
-  img.alt = item.name;
-
-  img.loading = "eager";
-
-  img.style.width = size + "px";
-  img.style.height = size + "px";
-
-  img.style.objectFit = "contain";
-
-  img.style.display = "block";
-
-  img.style.margin = "auto";
-
-  img.onerror = function () {
-
-    this.style.display = "none";
-
-    const fallback = document.createElement("div");
-
-    fallback.textContent = item.type === "bird"
-      ? "🐦"
-      : "🍎";
-
-    fallback.style.fontSize = size * 0.75 + "px";
-
-    this.parentElement.prepend(fallback);
-  };
-
-  return img;
-}
-
-function chooseTarget() {
-
-  target =
-    items[Math.floor(Math.random() * items.length)];
-}
-
-function createOptions() {
-
-  /*
-     EXACTLY FOUR OPTIONS.
-     TARGET IS ALWAYS INCLUDED.
-  */
-
-  const otherItems = items.filter(
-    item => item.name !== target.name
-  );
-
-  const wrongItems =
-    shuffle(otherItems).slice(0, 3);
-
-  return shuffle([
-    target,
-    ...wrongItems
-  ]);
-}
-
-function renderQuestion() {
-
-  chooseTarget();
-
-  const options = createOptions();
-
-  if (options.length !== 4) {
-    renderQuestion();
-    return;
-  }
-
-  targetEmojiEl.innerHTML = "";
-
-  targetEmojiEl.appendChild(
-    createImage(target, 130)
-  );
-
-  targetNameEl.textContent =
-    target.name;
-
-  optionsEl.innerHTML = "";
-
-  options.forEach(item => {
-
-    const button =
-      document.createElement("button");
-
-    button.type = "button";
-
-    button.className =
-      "fruit-option";
-
-    button.style.minHeight = "150px";
-
-    button.style.display = "flex";
-
-    button.style.flexDirection =
-      "column";
-
-    button.style.alignItems =
-      "center";
-
-    button.style.justifyContent =
-      "center";
-
-    button.style.gap = "7px";
-
-    button.appendChild(
-      createImage(item, 82)
-    );
-
-    const name =
-      document.createElement("span");
-
-    name.textContent =
-      item.name;
-
-    name.style.fontWeight =
-      "800";
-
-    name.style.fontSize =
-      "14px";
-
-    button.appendChild(name);
-
-    button.addEventListener(
-      "click",
-      () => checkAnswer(item, button)
-    );
-
-    optionsEl.appendChild(button);
-  });
-
-  if (messageEl) {
-    messageEl.textContent = "";
-  }
-
-  locked = false;
-
-  startTimer();
-}
-
-function checkAnswer(item, button) {
-
-  if (locked) return;
-
-  locked = true;
-
-  clearInterval(timer);
-
-  if (item.name === target.name) {
-
-    /*
-       CORRECT:
-       SCORE ONLY INCREASES.
-    */
-
-    score += 10;
-
-    level =
-      Math.floor(score / 50) + 1;
-
-    updateHUD();
-
-    button.style.transform =
-      "scale(1.08)";
-
-    button.style.boxShadow =
-      "0 0 0 5px #54d88a";
-
-    if (messageEl) {
-      messageEl.textContent =
-        "🎉 Correct! " +
-        target.name;
-    }
-
-    speak(target.name);
-
-    setTimeout(
-      nextRound,
-      750
-    );
-
-  } else {
-
-    /*
-       WRONG:
-       SCORE NEVER DECREASES.
-       ONLY LIFE DECREASES.
-    */
-
-    lives--;
-
-    updateHUD();
-
-    button.style.boxShadow =
-      "0 0 0 5px #ff5577";
-
-    if (messageEl) {
-      messageEl.textContent =
-        "❌ Wrong answer!";
-    }
-
-    setTimeout(() => {
-
-      if (lives <= 0) {
-
-        gameOver();
-
-      } else {
-
-        nextRound();
-
-      }
-
-    }, 700);
-  }
-}
+// ------------------------------------------------------------
+// NEXT ROUND
+// ------------------------------------------------------------
 
 function nextRound() {
-
-  clearInterval(timer);
 
   if (lives <= 0) {
     gameOver();
     return;
   }
 
-  renderQuestion();
+  locked = false;
+
+  target = randomItem();
+
+  targetName.textContent = target.name;
+
+  // Remove old target art
+  targetEmoji.innerHTML = "";
+
+  const targetArt = createArt(target);
+  targetArt.classList.add("target-art");
+
+  targetEmoji.appendChild(targetArt);
+
+  createOptions();
+
+  messageEl.textContent = "";
+
+  startTimer();
 }
+
+// ------------------------------------------------------------
+// CREATE OPTIONS
+// ------------------------------------------------------------
+
+function createOptions() {
+
+  optionsEl.innerHTML = "";
+
+  const choices = [target];
+
+  while (choices.length < 4) {
+
+    const item = randomItem();
+
+    if (!choices.some(x => x.name === item.name)) {
+      choices.push(item);
+    }
+  }
+
+  // Shuffle
+  choices.sort(() => Math.random() - 0.5);
+
+  choices.forEach(item => {
+
+    const button = document.createElement("button");
+
+    button.type = "button";
+    button.className = "fruit-option";
+
+    const art = createArt(item);
+
+    const name = document.createElement("div");
+    name.className = "option-name";
+    name.textContent = item.name;
+
+    button.appendChild(art);
+    button.appendChild(name);
+
+    button.addEventListener("click", () => {
+      selectAnswer(item, button);
+    });
+
+    optionsEl.appendChild(button);
+  });
+}
+
+// ------------------------------------------------------------
+// ANSWER
+// ------------------------------------------------------------
+
+function selectAnswer(item, button) {
+
+  if (locked) return;
+
+  locked = true;
+  clearInterval(timer);
+
+  if (item.name === target.name) {
+
+    score += 10;
+
+    if (score % 50 === 0) {
+      level++;
+    }
+
+    button.classList.add("correct");
+
+    messageEl.textContent =
+      "🎉 Correct! " + item.name;
+
+    speak(item.name);
+
+    updateHeader();
+
+    setTimeout(() => {
+      nextRound();
+    }, 650);
+
+  } else {
+
+    button.classList.add("wrong");
+
+    loseLife("❌ Try again!");
+
+    setTimeout(() => {
+
+      if (lives <= 0) {
+        gameOver();
+      } else {
+        nextRound();
+      }
+
+    }, 700);
+  }
+}
+
+// ------------------------------------------------------------
+// LOSE LIFE
+// ------------------------------------------------------------
+
+function loseLife(text) {
+
+  lives--;
+
+  messageEl.textContent = text;
+
+  updateHeader();
+}
+
+// ------------------------------------------------------------
+// GAME OVER
+// ------------------------------------------------------------
 
 function gameOver() {
 
@@ -375,187 +395,103 @@ function gameOver() {
 
   locked = true;
 
-  const previousBest =
-    Number(
-      localStorage.getItem(
-        "tapTheSameBest"
-      ) || 0
-    );
+  const finalScore = score;
 
-  const best =
-    Math.max(
-      score,
-      previousBest
-    );
-
-  localStorage.setItem(
-    "tapTheSameBest",
-    best
-  );
-
-  const oldScreen =
-    document.getElementById(
-      "tapSameGameOver"
-    );
-
-  if (oldScreen) {
-    oldScreen.remove();
-  }
-
-  const overlay =
-    document.createElement("div");
-
-  overlay.id =
-    "tapSameGameOver";
-
-  overlay.style.position =
-    "fixed";
-
-  overlay.style.inset = "0";
-
-  overlay.style.zIndex =
-    "99999";
-
-  overlay.style.display =
-    "flex";
-
-  overlay.style.alignItems =
-    "center";
-
-  overlay.style.justifyContent =
-    "center";
-
-  overlay.style.background =
-    "rgba(30,15,45,.82)";
-
-  overlay.innerHTML = `
-
-    <div style="
-      width:min(92vw,430px);
-      background:white;
-      border-radius:30px;
-      padding:35px 25px;
-      text-align:center;
-      box-shadow:0 25px 70px rgba(0,0,0,.35);
-    ">
-
-      <div style="
-        font-size:65px;
-      ">🏆</div>
-
-      <h2 style="
-        font-size:34px;
-        margin:10px 0;
-      ">
-        Game Over!
-      </h2>
-
-      <div style="
-        font-size:24px;
-        font-weight:900;
-        margin:15px 0;
-      ">
-        Final Score: ${score}
-      </div>
-
-      <div style="
-        font-size:19px;
-        margin-bottom:25px;
-      ">
-        ⭐ Best Score: ${best}
-      </div>
-
-      <button id="playAgain"
-        style="
-          border:0;
-          border-radius:18px;
-          padding:16px 30px;
-          font-size:19px;
-          font-weight:900;
-          color:white;
-          background:linear-gradient(
-            90deg,
-            #ff477d,
-            #ff9b45
-          );
-          cursor:pointer;
-        "
-      >
-        PLAY AGAIN
+  messageEl.innerHTML = `
+    <div class="game-over">
+      <div class="game-over-title">🎮 GAME OVER</div>
+      <div class="final-score">Score: ${finalScore}</div>
+      <div class="best-score">🏆 Best Score: ${bestScore}</div>
+      <button id="playAgainBtn" type="button">
+        🔄 Play Again
       </button>
-
     </div>
   `;
 
-  document.body.appendChild(overlay);
+  const playAgainBtn =
+    document.getElementById("playAgainBtn");
 
-  document
-    .getElementById("playAgain")
-    .addEventListener(
-      "click",
-      () => {
-
-        overlay.remove();
-
-        /*
-           NEW GAME
-           Score = 0
-           Lives = 3
-           Level = 1
-        */
-
-        score = 0;
-
-        lives = 3;
-
-        level = 1;
-
-        updateHUD();
-
-        renderQuestion();
-      }
-    );
+  if (playAgainBtn) {
+    playAgainBtn.addEventListener("click", startNewGame);
+  }
 }
+
+// ------------------------------------------------------------
+// NEW GAME
+// ------------------------------------------------------------
+
+function startNewGame() {
+
+  clearInterval(timer);
+
+  score = 0;
+  lives = 3;
+  level = 1;
+  locked = false;
+
+  updateHeader();
+
+  messageEl.textContent = "";
+
+  nextRound();
+}
+
+// ------------------------------------------------------------
+// SPEECH
+// ------------------------------------------------------------
+
+function speak(text) {
+
+  if (!("speechSynthesis" in window)) return;
+
+  window.speechSynthesis.cancel();
+
+  const utterance =
+    new SpeechSynthesisUtterance(text);
+
+  utterance.lang = "en-IN";
+  utterance.rate = 0.78;
+  utterance.pitch = 1;
+
+  window.speechSynthesis.speak(utterance);
+}
+
+// ------------------------------------------------------------
+// HEAR BUTTON
+// ------------------------------------------------------------
 
 if (hearBtn) {
 
-  hearBtn.addEventListener(
-    "click",
-    () => {
+  hearBtn.addEventListener("click", () => {
 
-      if (target) {
-        speak(target.name);
-      }
-
+    if (target) {
+      speak(target.name);
     }
-  );
+
+  });
 }
+
+// ------------------------------------------------------------
+// RESTART BUTTON
+// ------------------------------------------------------------
 
 if (restartBtn) {
 
-  restartBtn.addEventListener(
-    "click",
-    () => {
+  restartBtn.addEventListener("click", () => {
 
-      document
-        .getElementById(
-          "tapSameGameOver"
-        )
-        ?.remove();
+    startNewGame();
 
-      score = 0;
-
-      lives = 3;
-
-      level = 1;
-
-      updateHUD();
-
-      renderQuestion();
-    }
-  );
+  });
 }
 
-updateHUD();
+// ------------------------------------------------------------
+// IMPORTANT:
+// GAME DOES NOT AUTO-START.
+// game.html should start only after user reaches it.
+// ------------------------------------------------------------
 
-renderQuestion();
+updateHeader();
+
+// Start only when game.html is opened.
+// The Home page PLAY NOW button should link to game.html.
+nextRound();
