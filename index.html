@@ -1,91 +1,279 @@
 <!doctype html>
 <html lang="en">
+
 <head>
+
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Tap the Same — Colourful Fruit Matching Game</title>
-  <meta name="description" content="Play Tap the Same, a colourful fruit matching game. Find the matching fruit, score points and learn fruit names by voice.">
-  <meta name="theme-color" content="#ff4f81">
-  <link rel="stylesheet" href="style.css">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <meta
+    name="theme-color"
+    content="#ff4f81"
+  >
+
+  <title>Tap the Same - Animal Game</title>
+
+  <link
+    rel="stylesheet"
+    href="style.css"
+  >
+
 </head>
+
+
 <body>
+
+  <!-- ================= HEADER ================= -->
+
   <header class="topbar">
-    <div class="brand">🍓 <span>Tap the Same</span></div>
+
+    <div class="brand">
+      🐾
+      <span>Tap the Same</span>
+    </div>
+
     <nav>
-      <a href="#home">Home</a>
-      <a href="#game">Play</a>
-      <a href="#how">How to Play</a>
-      <a href="#fruits">Fruits</a>
+
+      <a href="index.html">
+        Home
+      </a>
+
+      <a href="game.html">
+        Play
+      </a>
+
+      <a href="#how">
+        How to Play
+      </a>
+
+      <a href="#animals">
+        Animals
+      </a>
+
     </nav>
+
   </header>
 
+
+  <!-- ================= HERO ================= -->
+
   <main>
-    <section id="home" class="hero">
-      <div class="floating f1">🍎</div><div class="floating f2">🍉</div>
-      <div class="floating f3">🍍</div><div class="floating f4">🥝</div>
+
+    <section class="hero">
+
       <div class="hero-card">
-        <div class="eyebrow">FUN • COLOURFUL • FREE TO PLAY</div>
-        <h1>Tap the Same 🍓</h1>
-        <p>Find the fruit that matches the target. Tap it, hear its name and build your best score!</p>
-        <button class="primary" onclick="startGame()">PLAY NOW</button>
-        <div class="stats"><span>🏆 Best Score: <b id="homeBest">0</b></span><span>🍉 50+ Fruits</span></div>
-      </div>
-    </section>
 
-    <section id="game" class="game-section">
-      <div class="game-shell">
-        <div class="game-head">
-          <div>🏆 <span id="score">0</span></div>
-          <div>❤️ <span id="lives">3</span></div>
-          <div>⭐ Level <span id="level">1</span></div>
+        <div class="hero-label">
+          FUN • COLOURFUL • FREE TO PLAY
         </div>
-        <div class="timer-wrap"><div id="timerBar"></div></div>
-        <div class="target-card">
-          <div class="small-label">FIND THIS FRUIT</div>
-          <div id="targetEmoji" class="target-emoji">🍎</div>
-          <div id="targetName" class="target-name">Apple</div>
+
+
+        <h1>
+          Tap the Same
+        </h1>
+
+
+        <div class="hero-animals">
+
+          <span>🦁</span>
+          <span>🐼</span>
+          <span>🐶</span>
+          <span>🐱</span>
+          <span>🐘</span>
+
         </div>
-        <div id="options" class="options"></div>
-        <div id="message" class="message"></div>
-        <div class="game-actions">
-          <button class="secondary" onclick="speakCurrent()">🔊 Hear Fruit</button>
-          <button class="secondary" onclick="restartGame()">↻ Restart</button>
+
+
+        <p class="hero-text">
+
+          Find the animal that matches
+          the target.
+
+          Tap it, hear its name and
+          build your best score!
+
+        </p>
+
+
+        <a
+          class="play-now"
+          href="game.html"
+        >
+          ▶ PLAY NOW
+        </a>
+
+
+        <div class="hero-stats">
+
+          <div>
+            🏆
+            <strong>Best Score:</strong>
+            <span>0</span>
+          </div>
+
+          <div>
+            🐾
+            <strong>Animals:</strong>
+            <span>40+</span>
+          </div>
+
         </div>
+
       </div>
+
     </section>
 
-    <section id="how" class="info-section">
-      <h2>How to Play</h2>
-      <div class="info-grid">
-        <article><div>👀</div><h3>Look</h3><p>Check the big target fruit.</p></article>
-        <article><div>🍓</div><h3>Find</h3><p>Find the same fruit in the four choices.</p></article>
-        <article><div>👆</div><h3>Tap</h3><p>Tap the matching fruit to score 10 points.</p></article>
-        <article><div>🔊</div><h3>Listen</h3><p>After a correct tap, the fruit name is spoken clearly.</p></article>
+
+    <!-- ================= HOW TO PLAY ================= -->
+
+    <section
+      id="how"
+      class="info-section"
+    >
+
+      <div class="info-card">
+
+        <h2>
+          🎮 How to Play
+        </h2>
+
+        <div class="steps">
+
+          <div class="step">
+
+            <div class="step-icon">
+              👀
+            </div>
+
+            <h3>
+              1. Look
+            </h3>
+
+            <p>
+              Look at the animal shown
+              in the target box.
+            </p>
+
+          </div>
+
+
+          <div class="step">
+
+            <div class="step-icon">
+              🔎
+            </div>
+
+            <h3>
+              2. Find
+            </h3>
+
+            <p>
+              Find the same animal
+              from the four big cards.
+            </p>
+
+          </div>
+
+
+          <div class="step">
+
+            <div class="step-icon">
+              👆
+            </div>
+
+            <h3>
+              3. Tap
+            </h3>
+
+            <p>
+              Tap the matching animal
+              before time runs out.
+            </p>
+
+          </div>
+
+
+          <div class="step">
+
+            <div class="step-icon">
+              🔊
+            </div>
+
+            <h3>
+              4. Learn
+            </h3>
+
+            <p>
+              Hear the animal name
+              and learn while playing.
+            </p>
+
+          </div>
+
+        </div>
+
       </div>
+
     </section>
 
-    <section id="fruits" class="info-section">
-      <h2>Fruit Collection</h2>
-      <p>Explore the fruits used in the game.</p>
-      <div id="fruitGrid" class="fruit-grid"></div>
+
+    <!-- ================= ANIMALS ================= -->
+
+    <section
+      id="animals"
+      class="animals-section"
+    >
+
+      <h2>
+        🐾 Meet the Animals
+      </h2>
+
+      <div class="animal-preview">
+
+        <div>🦁<span>Lion</span></div>
+
+        <div>🐼<span>Panda</span></div>
+
+        <div>🐘<span>Elephant</span></div>
+
+        <div>🦉<span>Owl</span></div>
+
+        <div>🦜<span>Parrot</span></div>
+
+        <div>🐬<span>Dolphin</span></div>
+
+        <div>🦒<span>Giraffe</span></div>
+
+        <div>🐧<span>Penguin</span></div>
+
+      </div>
+
     </section>
 
-    <section class="info-section about">
-      <h2>About Tap the Same</h2>
-      <p>Tap the Same is a simple visual fruit-matching game designed to be colourful, easy to understand and fun on phones and computers. No background music is used; only short game sounds and clear fruit-name voice feedback.</p>
-    </section>
+
   </main>
 
+
+  <!-- ================= FOOTER ================= -->
+
   <footer>
-    <div>🍓 <b>Tap the Same</b></div>
-    <div class="footer-links"><a href="#home">Home</a><a href="#game">Play</a><a href="#how">How to Play</a><a href="#fruits">Fruits</a><a href="#privacy">Privacy</a><a href="#terms">Terms</a></div>
-    <small>© <span id="year"></span> Tap the Same</small>
+
+    🐾 Tap the Same
+
+    <br>
+
+    <span>
+      Fun • Learn • Play
+    </span>
+
   </footer>
 
-  <section id="privacy" class="legal"><h2>Privacy</h2><p>This starter site stores the best score and fruit collection locally in your browser. If advertising or analytics are added later, this policy must be updated to describe those services and any required consent.</p></section>
-  <section id="terms" class="legal"><h2>Terms</h2><p>Tap the Same is provided for entertainment. Use the website responsibly. The game and its content may be changed or updated over time.</p></section>
 
-  <div id="celebration" class="celebration"></div>
-  <script src="game.js"></script>
 </body>
+
 </html>
+     
