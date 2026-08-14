@@ -1,148 +1,55 @@
-/* =========================================================
-   TAP THE SAME
-   FINAL GAME.JS
-   =========================================================
-
-   GAME FLOW:
-
-   WEBSITE OPEN
-        ↓
-   HOME / PLAY NOW
-        ↓
-   PLAY NOW CLICK
-        ↓
-   GAME SCREEN
-        ↓
-   START GAME CLICK
-        ↓
-   ROUND 1
-        ↓
-   Correct → Score increases
-   Wrong   → Life decreases
-   Timeout → Life decreases
-        ↓
-   Lives = 0
-        ↓
-   GAME OVER
-        ↓
-   PLAY AGAIN
-        ↓
-   Score = 0
-   Lives = 3
-   Level = 1
-*/
-
-/* =========================================================
-   FRUITS + BIRDS
-   ========================================================= */
+/* =====================================================
+   TAP THE SAME - ANIMALS & BIRDS EDITION
+   ===================================================== */
 
 const ITEMS = [
-
-  /* ---------- COMMON FRUITS ---------- */
-
-  { name: "Apple", emoji: "🍎", type: "fruit" },
-  { name: "Green Apple", emoji: "🍏", type: "fruit" },
-  { name: "Banana", emoji: "🍌", type: "fruit" },
-  { name: "Orange", emoji: "🍊", type: "fruit" },
-  { name: "Lemon", emoji: "🍋", type: "fruit" },
-  { name: "Watermelon", emoji: "🍉", type: "fruit" },
-  { name: "Grapes", emoji: "🍇", type: "fruit" },
-  { name: "Strawberry", emoji: "🍓", type: "fruit" },
-  { name: "Cherry", emoji: "🍒", type: "fruit" },
-  { name: "Peach", emoji: "🍑", type: "fruit" },
-  { name: "Mango", emoji: "🥭", type: "fruit" },
-  { name: "Pineapple", emoji: "🍍", type: "fruit" },
-  { name: "Kiwi", emoji: "🥝", type: "fruit" },
-  { name: "Coconut", emoji: "🥥", type: "fruit" },
-  { name: "Avocado", emoji: "🥑", type: "fruit" },
-  { name: "Pear", emoji: "🍐", type: "fruit" },
-  { name: "Melon", emoji: "🍈", type: "fruit" },
-  { name: "Papaya", emoji: "🧡", type: "fruit" },
-  { name: "Plum", emoji: "🟣", type: "fruit" },
-
-  /* ---------- SPECIAL FRUITS ---------- */
-
-  {
-    name: "Blackberry",
-    image: "fruit-sheet.png",
-    position: "0% 0%",
-    type: "fruit"
-  },
-
-  {
-    name: "Pomegranate",
-    image: "fruit-sheet.png",
-    position: "50% 0%",
-    type: "fruit"
-  },
-
-  {
-    name: "Dragon Fruit",
-    image: "fruit-sheet.png",
-    position: "100% 0%",
-    type: "fruit"
-  },
-
-  {
-    name: "Star Fruit",
-    image: "fruit-sheet.png",
-    position: "0% 100%",
-    type: "fruit"
-  },
-
-  {
-    name: "Fig",
-    image: "fruit-sheet.png",
-    position: "50% 100%",
-    type: "fruit"
-  },
-
-  {
-    name: "Dates",
-    image: "fruit-sheet.png",
-    position: "100% 100%",
-    type: "fruit"
-  },
-
-  { name: "Raspberry", emoji: "🔴", type: "fruit" },
-  { name: "Blueberry", emoji: "🔵", type: "fruit" },
-  { name: "Guava", emoji: "🟢", type: "fruit" },
-  { name: "Apricot", emoji: "🟠", type: "fruit" },
-  { name: "Lychee", emoji: "🔴", type: "fruit" },
-  { name: "Passion Fruit", emoji: "🟣", type: "fruit" },
-  { name: "Persimmon", emoji: "🟠", type: "fruit" },
-  { name: "Tangerine", emoji: "🍊", type: "fruit" },
-  { name: "Grapefruit", emoji: "🍊", type: "fruit" },
-  { name: "Cantaloupe", emoji: "🍈", type: "fruit" },
-  { name: "Nectarine", emoji: "🍑", type: "fruit" },
-  { name: "Cranberry", emoji: "🔴", type: "fruit" },
-  { name: "Mulberry", emoji: "🫐", type: "fruit" },
-  { name: "Jackfruit", emoji: "🟢", type: "fruit" },
-  { name: "Durian", emoji: "🟢", type: "fruit" },
-  { name: "Longan", emoji: "🟤", type: "fruit" },
-
-  /* ---------- BIRDS ---------- */
-
-  { name: "Parrot", emoji: "🦜", type: "bird" },
-  { name: "Penguin", emoji: "🐧", type: "bird" },
-  { name: "Flamingo", emoji: "🦩", type: "bird" },
-  { name: "Owl", emoji: "🦉", type: "bird" },
-  { name: "Eagle", emoji: "🦅", type: "bird" },
-  { name: "Duck", emoji: "🦆", type: "bird" },
-  { name: "Swan", emoji: "🦢", type: "bird" },
-  { name: "Peacock", emoji: "🦚", type: "bird" },
-  { name: "Rooster", emoji: "🐓", type: "bird" },
-  { name: "Chicken", emoji: "🐔", type: "bird" },
-  { name: "Turkey", emoji: "🦃", type: "bird" },
-  { name: "Dove", emoji: "🕊️", type: "bird" },
-  { name: "Hummingbird", emoji: "🐦", type: "bird" },
-  { name: "Seagull", emoji: "🪽", type: "bird" }
+  { name: "Dog", emoji: "🐶" },
+  { name: "Cat", emoji: "🐱" },
+  { name: "Lion", emoji: "🦁" },
+  { name: "Tiger", emoji: "🐯" },
+  { name: "Elephant", emoji: "🐘" },
+  { name: "Panda", emoji: "🐼" },
+  { name: "Koala", emoji: "🐨" },
+  { name: "Monkey", emoji: "🐵" },
+  { name: "Fox", emoji: "🦊" },
+  { name: "Bear", emoji: "🐻" },
+  { name: "Rabbit", emoji: "🐰" },
+  { name: "Frog", emoji: "🐸" },
+  { name: "Pig", emoji: "🐷" },
+  { name: "Cow", emoji: "🐮" },
+  { name: "Horse", emoji: "🐴" },
+  { name: "Sheep", emoji: "🐑" },
+  { name: "Goat", emoji: "🐐" },
+  { name: "Chicken", emoji: "🐔" },
+  { name: "Duck", emoji: "🦆" },
+  { name: "Eagle", emoji: "🦅" },
+  { name: "Owl", emoji: "🦉" },
+  { name: "Parrot", emoji: "🦜" },
+  { name: "Flamingo", emoji: "🦩" },
+  { name: "Peacock", emoji: "🦚" },
+  { name: "Penguin", emoji: "🐧" },
+  { name: "Swan", emoji: "🦢" },
+  { name: "Turtle", emoji: "🐢" },
+  { name: "Crocodile", emoji: "🐊" },
+  { name: "Snake", emoji: "🐍" },
+  { name: "Giraffe", emoji: "🦒" },
+  { name: "Zebra", emoji: "🦓" },
+  { name: "Kangaroo", emoji: "🦘" },
+  { name: "Hippo", emoji: "🦛" },
+  { name: "Rhino", emoji: "🦏" },
+  { name: "Octopus", emoji: "🐙" },
+  { name: "Dolphin", emoji: "🐬" },
+  { name: "Whale", emoji: "🐳" },
+  { name: "Shark", emoji: "🦈" },
+  { name: "Fish", emoji: "🐠" },
+  { name: "Butterfly", emoji: "🦋" },
+  { name: "Bee", emoji: "🐝" }
 ];
 
 
-/* =========================================================
+/* =========================
    GAME VARIABLES
-   ========================================================= */
+   ========================= */
 
 let score = 0;
 let lives = 3;
@@ -156,54 +63,32 @@ let gameOver = false;
 let timer = null;
 let timeLeft = 8;
 
-let bestScore =
-  Number(localStorage.getItem("tapSameBestScore")) || 0;
+
+/* =========================
+   ELEMENTS
+   ========================= */
+
+const scoreEl = document.getElementById("score");
+const livesEl = document.getElementById("lives");
+const levelEl = document.getElementById("level");
+
+const optionsEl = document.getElementById("options");
+const targetEmojiEl = document.getElementById("targetEmoji");
+const targetNameEl = document.getElementById("targetName");
+
+const timerBar = document.getElementById("timerBar");
+const messageEl = document.getElementById("message");
+
+const hearBtn = document.getElementById("hearBtn");
+const restartBtn = document.getElementById("restartBtn");
+
+const gameSection = document.getElementById("gameSection");
+const playNowBtn = document.getElementById("playNow");
 
 
-/* =========================================================
-   FIND ELEMENTS
-   ========================================================= */
-
-const scoreEl =
-  document.getElementById("score");
-
-const livesEl =
-  document.getElementById("lives");
-
-const levelEl =
-  document.getElementById("level");
-
-const optionsEl =
-  document.getElementById("options");
-
-const targetNameEl =
-  document.getElementById("targetName");
-
-const targetEmojiEl =
-  document.getElementById("targetEmoji");
-
-const timerBar =
-  document.getElementById("timerBar");
-
-const messageEl =
-  document.getElementById("message");
-
-const hearBtn =
-  document.getElementById("hearBtn");
-
-const restartBtn =
-  document.getElementById("restartBtn");
-
-const gameSection =
-  document.getElementById("gameSection");
-
-const playNowBtn =
-  document.getElementById("playNow");
-
-
-/* =========================================================
-   UPDATE SCORE / LIVES / LEVEL
-   ========================================================= */
+/* =========================
+   UPDATE HEADER
+   ========================= */
 
 function updateHeader() {
 
@@ -221,46 +106,37 @@ function updateHeader() {
 }
 
 
-/* =========================================================
-   CREATE ITEM IMAGE
-   ========================================================= */
+/* =========================
+   RANDOM ITEM
+   ========================= */
 
-function createItemVisual(item, big = false) {
+function randomItem() {
 
-  /* SPECIAL REAL IMAGE SPRITE */
-
-  if (item.image) {
-
-    const size =
-      big ? "300% 200%" : "300% 200%";
-
-    return `
-      <div
-        class="real-item-image ${big ? "big" : ""}"
-        style="
-          background-image:url('${item.image}');
-          background-size:${size};
-          background-position:${item.position};
-          background-repeat:no-repeat;
-        ">
-      </div>
-    `;
-  }
+  return ITEMS[
+    Math.floor(Math.random() * ITEMS.length)
+  ];
+}
 
 
-  /* NORMAL ITEM */
+/* =========================
+   CREATE ANIMAL IMAGE
+   ========================= */
+
+function animalVisual(item, large = false) {
 
   return `
-    <div class="item-emoji ${big ? "big" : ""}">
+    <div
+      class="animal-emoji ${large ? "large-animal" : ""}"
+      aria-label="${item.name}">
       ${item.emoji}
     </div>
   `;
 }
 
 
-/* =========================================================
+/* =========================
    SHOW TARGET
-   ========================================================= */
+   ========================= */
 
 function showTarget() {
 
@@ -269,7 +145,7 @@ function showTarget() {
   if (targetEmojiEl) {
 
     targetEmojiEl.innerHTML =
-      createItemVisual(target, true);
+      animalVisual(target, true);
   }
 
   if (targetNameEl) {
@@ -280,24 +156,9 @@ function showTarget() {
 }
 
 
-/* =========================================================
-   GET RANDOM ITEMS
-   ========================================================= */
-
-function getRandomItems(count) {
-
-  const shuffled =
-    [...ITEMS].sort(
-      () => Math.random() - 0.5
-    );
-
-  return shuffled.slice(0, count);
-}
-
-
-/* =========================================================
+/* =========================
    CREATE OPTIONS
-   ========================================================= */
+   ========================= */
 
 function createOptions() {
 
@@ -305,40 +166,24 @@ function createOptions() {
 
   optionsEl.innerHTML = "";
 
-
   let choices = [target];
 
+  while (choices.length < 4) {
 
-  const others =
-    ITEMS.filter(
-      item => item.name !== target.name
-    );
+    const item = randomItem();
 
-
-  const shuffledOthers =
-    [...others].sort(
-      () => Math.random() - 0.5
-    );
-
-
-  while (
-    choices.length < 4 &&
-    shuffledOthers.length
-  ) {
-
-    const item =
-      shuffledOthers.shift();
-
-    if (
-      !choices.some(
+    const alreadyExists =
+      choices.some(
         x => x.name === item.name
-      )
-    ) {
+      );
 
+    if (!alreadyExists) {
       choices.push(item);
     }
   }
 
+
+  /* Shuffle */
 
   choices.sort(
     () => Math.random() - 0.5
@@ -353,15 +198,15 @@ function createOptions() {
     button.type = "button";
 
     button.className =
-      "fruit-option";
+      "animal-option";
 
 
     button.innerHTML = `
-      <div class="option-picture">
-        ${createItemVisual(item)}
+      <div class="animal-picture">
+        ${animalVisual(item)}
       </div>
 
-      <div class="option-name">
+      <div class="animal-name">
         ${item.name}
       </div>
     `;
@@ -369,7 +214,9 @@ function createOptions() {
 
     button.addEventListener(
       "click",
-      () => selectItem(item)
+      function () {
+        selectAnimal(item);
+      }
     );
 
 
@@ -379,31 +226,25 @@ function createOptions() {
 }
 
 
-/* =========================================================
-   START TIMER
-   ========================================================= */
+/* =========================
+   TIMER
+   ========================= */
 
 function startTimer() {
 
   clearInterval(timer);
 
-
-  timeLeft =
-    Math.max(
-      4,
-      9 - Math.floor(level / 3)
-    );
+  timeLeft = 8;
 
 
   if (timerBar) {
 
-    timerBar.style.width =
-      "100%";
+    timerBar.style.width = "100%";
   }
 
 
-  timer =
-    setInterval(() => {
+  timer = setInterval(
+    function () {
 
       timeLeft -= 0.1;
 
@@ -411,7 +252,7 @@ function startTimer() {
       const percentage =
         Math.max(
           0,
-          (timeLeft / 9) * 100
+          (timeLeft / 8) * 100
         );
 
 
@@ -426,18 +267,20 @@ function startTimer() {
 
         clearInterval(timer);
 
-        timeOut();
+        timeoutRound();
       }
 
-    }, 100);
+    },
+    100
+  );
 }
 
 
-/* =========================================================
+/* =========================
    TIME OUT
-   ========================================================= */
+   ========================= */
 
-function timeOut() {
+function timeoutRound() {
 
   if (!gameStarted || gameOver) {
     return;
@@ -446,12 +289,11 @@ function timeOut() {
 
   lives--;
 
-
   updateHeader();
 
 
   showMessage(
-    "⏰ Time Up!",
+    "⏰ Time's Up!",
     "wrong"
   );
 
@@ -459,33 +301,29 @@ function timeOut() {
   if (lives <= 0) {
 
     endGame();
+
     return;
   }
 
 
-  setTimeout(() => {
-
-    if (!gameOver) {
-
-      clearMessage();
+  setTimeout(
+    function () {
 
       nextRound();
-    }
 
-  }, 700);
+    },
+    700
+  );
 }
 
 
-/* =========================================================
-   SELECT ITEM
-   ========================================================= */
+/* =========================
+   SELECT ANIMAL
+   ========================= */
 
-function selectItem(item) {
+function selectAnimal(item) {
 
-  if (
-    !gameStarted ||
-    gameOver
-  ) {
+  if (!gameStarted || gameOver) {
     return;
   }
 
@@ -493,29 +331,14 @@ function selectItem(item) {
   clearInterval(timer);
 
 
-  if (
-    item.name === target.name
-  ) {
+  if (item.name === target.name) {
 
     /* CORRECT */
 
     score += 10;
 
-
     level =
       Math.floor(score / 100) + 1;
-
-
-    if (score > bestScore) {
-
-      bestScore = score;
-
-      localStorage.setItem(
-        "tapSameBestScore",
-        bestScore
-      );
-    }
-
 
     updateHeader();
 
@@ -526,16 +349,14 @@ function selectItem(item) {
     );
 
 
-    setTimeout(() => {
-
-      if (!gameOver) {
-
-        clearMessage();
+    setTimeout(
+      function () {
 
         nextRound();
-      }
 
-    }, 450);
+      },
+      450
+    );
 
 
   } else {
@@ -544,12 +365,11 @@ function selectItem(item) {
 
     lives--;
 
-
     updateHeader();
 
 
     showMessage(
-      "❌ Wrong!",
+      "❌ Try Again!",
       "wrong"
     );
 
@@ -557,34 +377,30 @@ function selectItem(item) {
     if (lives <= 0) {
 
       endGame();
+
       return;
     }
 
 
-    setTimeout(() => {
-
-      if (!gameOver) {
-
-        clearMessage();
+    setTimeout(
+      function () {
 
         nextRound();
-      }
 
-    }, 650);
+      },
+      650
+    );
   }
 }
 
 
-/* =========================================================
+/* =========================
    NEXT ROUND
-   ========================================================= */
+   ========================= */
 
 function nextRound() {
 
-  if (
-    !gameStarted ||
-    gameOver
-  ) {
+  if (!gameStarted || gameOver) {
     return;
   }
 
@@ -592,12 +408,7 @@ function nextRound() {
   clearInterval(timer);
 
 
-  target =
-    ITEMS[
-      Math.floor(
-        Math.random() * ITEMS.length
-      )
-    ];
+  target = randomItem();
 
 
   showTarget();
@@ -608,9 +419,9 @@ function nextRound() {
 }
 
 
-/* =========================================================
+/* =========================
    START GAME
-   ========================================================= */
+   ========================= */
 
 function startGame() {
 
@@ -618,37 +429,27 @@ function startGame() {
 
 
   score = 0;
-
   lives = 3;
-
   level = 1;
 
   target = null;
 
   gameStarted = true;
-
   gameOver = false;
 
 
   updateHeader();
 
-
   clearMessage();
-
-
-  if (optionsEl) {
-
-    optionsEl.innerHTML = "";
-  }
 
 
   nextRound();
 }
 
 
-/* =========================================================
-   END GAME
-   ========================================================= */
+/* =========================
+   GAME OVER
+   ========================= */
 
 function endGame() {
 
@@ -656,18 +457,12 @@ function endGame() {
 
 
   gameStarted = false;
-
   gameOver = true;
 
 
-  if (score > bestScore) {
+  if (targetEmojiEl) {
 
-    bestScore = score;
-
-    localStorage.setItem(
-      "tapSameBestScore",
-      bestScore
-    );
+    targetEmojiEl.innerHTML = "🏆";
   }
 
 
@@ -678,16 +473,10 @@ function endGame() {
   }
 
 
-  if (targetEmojiEl) {
-
-    targetEmojiEl.innerHTML =
-      "🏆";
-  }
-
-
   if (optionsEl) {
 
     optionsEl.innerHTML = `
+
       <div class="game-over">
 
         <div class="game-over-title">
@@ -695,11 +484,11 @@ function endGame() {
         </div>
 
         <div class="final-score">
-          Your Score: ${score}
+          Score: ${score}
         </div>
 
-        <div class="best-score">
-          🏆 Best Score: ${bestScore}
+        <div class="final-level">
+          ⭐ Level: ${level}
         </div>
 
         <button
@@ -710,6 +499,7 @@ function endGame() {
         </button>
 
       </div>
+
     `;
 
 
@@ -730,15 +520,15 @@ function endGame() {
 
 
   showMessage(
-    "Great job! 🎉",
-    ""
+    "Well Played! 🏆",
+    "correct"
   );
 }
 
 
-/* =========================================================
+/* =========================
    MESSAGE
-   ========================================================= */
+   ========================= */
 
 function showMessage(text, type) {
 
@@ -762,15 +552,15 @@ function clearMessage() {
 }
 
 
-/* =========================================================
-   HEAR FRUIT / BIRD
-   ========================================================= */
+/* =========================
+   HEAR ANIMAL
+   ========================= */
 
 if (hearBtn) {
 
   hearBtn.addEventListener(
     "click",
-    () => {
+    function () {
 
       if (!target) return;
 
@@ -790,8 +580,13 @@ if (hearBtn) {
 
         speech.lang = "en-US";
 
-        speech.rate = 0.65;
+        /*
+          Slow pronunciation so
+          children's names are easier
+          to understand.
+        */
 
+        speech.rate = 0.65;
         speech.pitch = 1;
 
 
@@ -799,14 +594,15 @@ if (hearBtn) {
           speech
         );
       }
+
     }
   );
 }
 
 
-/* =========================================================
+/* =========================
    RESTART BUTTON
-   ========================================================= */
+   ========================= */
 
 if (restartBtn) {
 
@@ -817,57 +613,23 @@ if (restartBtn) {
 }
 
 
-/* =========================================================
-   PLAY NOW
-   IMPORTANT:
-   WEBSITE OPEN → NO GAME
-   PLAY NOW → SHOW GAME
-   ========================================================= */
-
-function openGameScreen() {
-
-  if (gameSection) {
-
-    gameSection.style.display =
-      "block";
-
-    gameSection.scrollIntoView({
-      behavior: "smooth"
-    });
-  }
-
-
-  /*
-    IMPORTANT:
-    We DO NOT call startGame()
-    here.
-
-    Player must press
-    START GAME separately.
-  */
-
-
-  showStartScreen();
-}
-
-
-/* =========================================================
-   SHOW START SCREEN
-   ========================================================= */
+/* =========================
+   START SCREEN
+   ========================= */
 
 function showStartScreen() {
 
-  gameStarted = false;
-
-  gameOver = false;
-
   clearInterval(timer);
+
+
+  gameStarted = false;
+  gameOver = false;
 
 
   if (targetEmojiEl) {
 
     targetEmojiEl.innerHTML =
-      "🍓";
+      "🐾";
   }
 
 
@@ -884,13 +646,17 @@ function showStartScreen() {
 
       <div class="start-screen">
 
+        <div class="start-animal">
+          🦁 🐼 🐶
+        </div>
+
         <div class="start-title">
-          🍓 Ready?
+          Animal Match!
         </div>
 
         <p>
-          Find the matching fruit
-          or bird!
+          Find the animal that matches
+          the target.
         </p>
 
         <button
@@ -919,78 +685,64 @@ function showStartScreen() {
       );
     }
   }
+
+
+  updateHeader();
 }
 
 
-/* =========================================================
-   PLAY NOW BUTTON
-   ========================================================= */
+/* =========================
+   PLAY NOW
+   ========================= */
 
 if (playNowBtn) {
 
   playNowBtn.addEventListener(
     "click",
-    openGameScreen
+    function () {
+
+      if (gameSection) {
+
+        gameSection.style.display =
+          "block";
+
+
+        gameSection.scrollIntoView({
+          behavior: "smooth"
+        });
+      }
+
+
+      showStartScreen();
+
+    }
   );
 }
 
 
-/* =========================================================
+/* =========================
    INITIAL STATE
-   ========================================================= */
+   ========================= */
 
 /*
    VERY IMPORTANT:
 
-   DO NOT START GAME HERE.
-
-   When website opens:
-       gameStarted = false
-
-   Player must click:
-       PLAY NOW
-
-   Then:
-       START GAME
-
-   Only then:
-       nextRound()
+   WEBSITE OPEN AINAPPUDU
+   GAME AUTOMATIC GA START AVVADU.
 */
 
-
 gameStarted = false;
-
 gameOver = false;
 
 clearInterval(timer);
 
 
 /*
-   If game section is already on the
-   page, don't start it automatically.
+   If game section is directly visible,
+   show START GAME screen.
 */
 
-if (gameSection) {
-
-  gameSection.style.display =
-    "none";
-}
-
-
-/* =========================================================
-   IF GAME PAGE IS OPEN DIRECTLY
-   ========================================================= */
-
-if (
-  !playNowBtn &&
-  optionsEl
-) {
-
-  /*
-     game.html direct open:
-     show START GAME,
-     but DON'T automatically start.
-  */
+if (!playNowBtn && optionsEl) {
 
   if (gameSection) {
 
@@ -1000,7 +752,4 @@ if (
 
   showStartScreen();
 }
-
-
-
-  
+      
